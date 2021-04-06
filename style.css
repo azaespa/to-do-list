@@ -1,3 +1,8 @@
+body {
+    background-color:whitesmoke;
+    color: midnightblue;
+}
+
 .inputNameForm,
 .greetings {
     display: none;
