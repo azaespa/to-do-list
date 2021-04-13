@@ -29,3 +29,17 @@ body {
     z-index: -1;
     animation: fadeIn .5s linear;
 }
+
+.clock {
+    display: block;
+    text-align: center;
+    padding: 100px 0;
+    width: 100%;
+}
+
+.toDoForm, 
+.toDoList,
+.inputNameForm,
+.greetings {
+    text-align: center;
+}
