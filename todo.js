@@ -25,7 +25,7 @@ function paintToDo(text){
     const delBtn = document.createElement("button");
     const span = document.createElement("span");
     const id = toDos.length + 1;
-    delBtn.innerText = "X";
+    delBtn.innerText = "❌";
     delBtn.addEventListener('click', deleteToDo);
     span.innerText = text;
     li.id = id;
@@ -60,6 +60,7 @@ function loadToDos(){
 function init() {
     loadToDos();
     toDoForm.addEventListener('submit', handleSubmit);
+    toDoInput.focus();
 }
 
 init();
