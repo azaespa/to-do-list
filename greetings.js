@@ -20,7 +20,7 @@ function askForName() {
 function paintGreetings(text) {
     inputNameForm.classList.remove(SHOWING_CN);
     greetings.classList.add(SHOWING_CN);
-    greetings.innerText = `Hello ${text}`;
+    greetings.innerText = `Hi, ${text}!`;
 }
 
 function loadName() {
