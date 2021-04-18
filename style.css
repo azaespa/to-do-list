@@ -30,16 +30,33 @@ body {
     animation: fadeIn .5s linear;
 }
 
-.clock {
-    display: block;
-    text-align: center;
-    padding: 100px 0;
-    width: 100%;
+h1 {
+    font-size: 9rem;
+    margin: 0;
 }
 
-.toDoForm, 
-.toDoList,
-.inputNameForm,
-.greetings {
+h4{
+    margin: 0;
+    font-size: 4rem;
+}
+
+.left-side{
     text-align: center;
+}
+
+.right-side {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.content {
+    display:flex;
+    flex-flow: row wrap;
+    height: calc(100vh - 100px);
+    align-items: center;
+}
+
+.content > *{
+    flex: 1;
 }
