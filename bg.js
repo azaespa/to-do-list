@@ -17,10 +17,7 @@ function genRandom(){
 
 function init(){
     //paintBg(genRandom());
-    const bg = new Image();
-    bg.src = "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80";
-    bg.classList.add("bgImage");
-    background.prepend(bg);
+    body.style.backgroundImage = "url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80)";
 }
 
 init();
