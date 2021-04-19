@@ -20,7 +20,7 @@ function addChunkToToDosArray(chunkDownParentId, text){
 
 function paintChunkDownToDo(chunkDownParentId, text){
     const chunkDownParent = document.getElementById(chunkDownParentId);
-    const chunkDownUL = chunkDownParent.querySelector("ul");
+    const chunkDownUL = chunkDownParent.querySelector(".chunkDownULToDo");
     const chunkDownLI = document.createElement("li");
     const chunkDownToDo = document.createElement("span");
     chunkDownToDo.innerText = text;
@@ -41,7 +41,7 @@ function loadChunkToDos(toDo){
 
 function handleSubmitChunk(event){
     event.preventDefault();
-    const chunkDownUL = event.target.closest("ul");
+    const chunkDownUL = event.target.closest("div");
     const chunkDownParentId = chunkDownUL.parentNode.id;
     const chunkDownInput = event.target.querySelector("input");
     const currentValue = chunkDownInput.value;
@@ -51,7 +51,7 @@ function handleSubmitChunk(event){
 
 function paintChunkDownList(id){
     const toDo = document.getElementById(id);
-    const chunkDownUL = toDo.querySelector("ul");
+    const chunkDownUL = toDo.querySelector(".chunkDownToDoList");
     const chunkDownForm = toDo.querySelector("form");
     if(chunkDownUL.classList.contains(SHOWING_CN)){
         chunkDownUL.classList.remove(SHOWING_CN);
@@ -62,11 +62,9 @@ function paintChunkDownList(id){
     chunkDownForm.addEventListener("submit", handleSubmitChunk);
 }
 
-function handleClick(event){
-    const toDoListId = event.target.parentNode.id;
-    if (toDoListId !== "") {
-        paintChunkDownList(toDoListId);
-    }
+function handleClickToDo(event){
+    const toDoLiId = event.target.parentNode.id;
+    paintChunkDownList(toDoLiId);
 }
 
 function deleteToDo(event){
@@ -93,12 +91,15 @@ function paintToDo(text){
     //
     const chunkDownInput = document.createElement("input");
     const chunkDownForm = document.createElement("form");
-    const chunkDownUL = document.createElement("ul");
+    const chunkDownULForm = document.createElement("ul");
+    const chunkDownULToDo = document.createElement("ul");
+    const chunkDownDiv = document.createElement("div");
     const chunkDownLI = document.createElement("li");
     //
     delBtn.innerText = "❌";
     delBtn.addEventListener('click', deleteToDo);
     span.innerText = text;
+    span.addEventListener('click', handleClickToDo);
     li.id = id;
     li.appendChild(delBtn);
     li.appendChild(span);
@@ -106,12 +107,16 @@ function paintToDo(text){
     
 
     chunkDownInput.placeholder = "Chunk it down?";
-    chunkDownUL.classList.add("chunkDownToDoList");
-    chunkDownUL.id = li.id.concat("childUL");
+    chunkDownDiv.classList.add("chunkDownToDoList");
+    chunkDownULToDo.id = li.id.concat("childUL");
+    chunkDownULToDo.classList.add("chunkDownULToDo");
+    chunkDownLI.id = li.id.concat("childInput");
     chunkDownForm.appendChild(chunkDownInput);
     chunkDownLI.appendChild(chunkDownForm);
-    chunkDownUL.appendChild(chunkDownLI);
-    li.appendChild(chunkDownUL);
+    chunkDownULForm.appendChild(chunkDownLI);
+    chunkDownDiv.appendChild(chunkDownULToDo);
+    chunkDownDiv.appendChild(chunkDownULForm);
+    li.appendChild(chunkDownDiv);
 
     const toDoObj = {
         text: text,
@@ -142,7 +147,6 @@ function loadToDos(){
 function init() {
     loadToDos();
     toDoForm.addEventListener('submit', handleSubmitToDo);
-    toDoList.addEventListener('click', handleClick);
     toDoInput.focus();
 }
 
