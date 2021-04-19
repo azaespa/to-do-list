@@ -132,6 +132,7 @@ li {
     font-size: 1.5rem;
 }
 
-.toDoList li ul li {
-    margin-left: 2rem;
+.chunkDownToDoList {
+    box-sizing: border-box;
+    padding-left: 3rem;
 }
