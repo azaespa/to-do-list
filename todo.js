@@ -18,9 +18,9 @@ function addChunkToToDosArray(chunkDownParentId, text){
     });
 }
 
-function paintChunkDownToDo(id, text){
-    const chunkDownUL = document.getElementById(id);
-    const chunkDownParentId = chunkDownUL.parentNode.id;
+function paintChunkDownToDo(chunkDownParentId, text){
+    const chunkDownParent = document.getElementById(chunkDownParentId);
+    const chunkDownUL = chunkDownParent.querySelector("ul");
     const chunkDownLI = document.createElement("li");
     const chunkDownToDo = document.createElement("span");
     chunkDownToDo.innerText = text;
@@ -31,17 +31,21 @@ function paintChunkDownToDo(id, text){
     saveToDos();
 }
 
-function loadChunkToDos(){
-    
+function loadChunkToDos(toDo){
+    if(toDo.hasOwnProperty("child")){
+        toDo.child.forEach(function(toDoChild){
+            paintChunkDownToDo(toDo.id, toDoChild);
+        });
+    }
 }
 
 function handleSubmitChunk(event){
     event.preventDefault();
     const chunkDownUL = event.target.closest("ul");
-    const chunkDownULId = chunkDownUL.id;
+    const chunkDownParentId = chunkDownUL.parentNode.id;
     const chunkDownInput = event.target.querySelector("input");
     const currentValue = chunkDownInput.value;
-    paintChunkDownToDo(chunkDownULId, currentValue);
+    paintChunkDownToDo(chunkDownParentId, currentValue);
     chunkDownInput.value = "";
 }
 
@@ -130,6 +134,7 @@ function loadToDos(){
         const parsedToDos = JSON.parse(loadedToDos);
         parsedToDos.forEach(function(toDo) {
             paintToDo(toDo.text);
+            loadChunkToDos(toDo);
         });
     }
 }
