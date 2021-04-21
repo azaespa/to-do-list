@@ -3,17 +3,18 @@
 const googleSearchForm = document.querySelector(".googleSearchForm"),
     googleSearchInput = googleSearchForm.querySelector("input");
 
-let GOOGLE_SEARCH = "https://www.google.com/search?q=";
+const GOOGLE_SEARCH = "https://www.google.com/search?q=";
 
-function handleSubmitGoogle(event){
+function handleSubmitGoogle(event) {
     event.preventDefault();
-    const currentValue = googleSearchInput.value;
-    GOOGLE_SEARCH += currentValue;
-    window.open(GOOGLE_SEARCH);
-    event.value = "";
+    let currentValue = googleSearchInput.value;
+    if (currentValue != "") {
+        window.open(GOOGLE_SEARCH + currentValue);
+        googleSearchInput.value = "";
+    }
 }
 
-function init(){
+function init() {
     googleSearchForm.addEventListener("submit", handleSubmitGoogle);
 }
 
