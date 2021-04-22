@@ -111,6 +111,7 @@ input:focus {
     display: flex;
     flex-flow: row wrap;
     height: calc(100vh - 100px);
+    justify-content: center;
     align-items: center;
     padding: 5rem;
     gap: 1rem;
