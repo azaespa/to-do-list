@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="src/css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="background">
-        <div class="layer"></div>
+      <div class="layer"></div>
     </div>
-    <div class="googleSearchContainer">
-        <form class="googleSearchForm">
-            <input type="text" class="searchInput" placeholder="Google..">
-        </form>
-    </div>
-    <div class="youtubeSearchContainer">
-        <form class="youtubeSearchForm">
-            <input type="text" class="searchInput" placeholder="Youtube..">
-        </form>
-    </div>
+    <header>
+      <form class="googleSearchForm">
+        <input type="text" class="searchInput" placeholder="Google.." />
+      </form>
+      <form class="youtubeSearchForm">
+        <input type="text" class="searchInput" placeholder="Youtube.." />
+      </form>
+    </header>
     <div class="content">
-        <div class="left-side">
-            <div class="js-clock clock">
+        <div class="split">
+            <div class="left-side">
+              <div class="js-clock clock">
                 <h1>00:00</h1>
+              </div>
+              <form class="js-inputNameForm inputNameForm">
+                <input type="text" placeholder="What is your name?" />
+              </form>
+              <h4 class="js-greetings greetings">TEST</h4>
             </div>
-            <form class="js-inputNameForm inputNameForm">
-                <input type="text" placeholder="What is your name?">
-            </form>
-            <h4 class="js-greetings greetings"> TEST </h4>
-        </div>
-        <div class="right-side">
-            <div>
+            <div class="right-side">
+              <div>
                 <form class="js-toDoForm toDoForm">
-                    <input type="text" placeholder="Write To Do">
+                  <input type="text" placeholder="Write To Do" />
                 </form>
                 <div class="toDoListContainer">
-                    <ul class="js-toDoList toDoList"></ul>
+                  <ul class="js-toDoList toDoList"></ul>
                 </div>
+              </div>
             </div>
-        </div>
+          </div>
     </div>
     <script src="src/js/greetings.js"></script>
     <script src="src/js/clock.js"></script>
@@ -53,6 +55,5 @@
     <script src="src/js/google-search.js"></script>
     <script src="src/js/youtube-search.js"></script>
     <script src="src/js/weather.js"></script>
-</body>
-
+  </body>
 </html>
