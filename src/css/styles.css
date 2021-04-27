@@ -21,6 +21,38 @@ h4 {
     font-size: 2em;
 }
 
+input {
+    color: white;
+    border-style: none;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+}
+
+input::placeholder {
+    opacity: 1;
+}
+
+input:focus {
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul:hover {
+    cursor: pointer;
+}
+
+button {
+    background: transparent;
+    border-style: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 .inputNameForm,
 .greetings,
 .chunkDownToDoList {
@@ -92,6 +124,10 @@ h4 {
 }
 
 @media (min-width: 40em) {
+    h1,
+    h4 {
+        margin: auto;
+    }
     h1 {
         font-size: 6em;
     }
